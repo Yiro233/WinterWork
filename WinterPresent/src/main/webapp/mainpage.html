@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微博</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="weibo.css" />
+    <link rel="stylesheet" href="personInfo.css">
+    <script language=javascript src='jquery-3.3.1.js'></script>
+    <script src="fundset.js"></script>
+    <script src="weibo.js"></script>
+</head>
+<body>
+    <div class="WB_miniblog" id="WB_miniblog">
+        <div class="WB_miniblog_fb">
+            <div id="plc_top">
+                <div class="WB_global_nav WB_global_nav_v2 UI_top_hidden">
+                    <div class="gn_header clearfix">
+                        <div class="gn_position">
+                            <div class="gn_nav">
+                                <ul class="gn_nav_list">
+                                    <li><a href="personInfo.html" nm="name" class="gn_name"><em class="W_ficon ficon_user S_ficon">H</em><em
+                                                class="S_txt1" id=top_name></em></a></li>
+                                </ul>
+                            </div>
+                            <div class="gn_set S_line1">
+                                <div class="gn_set_list">
+                                    <a href="javascript:void(0);" onmouseover="showInfo('gn_topmenulist_set')" onmouseout="hideInfo('gn_topmenulist_set')" node-type="account" nm="account">
+                                        <em class="W_ficon ficon_set S_ficon">*</em></a>
+                                    <div class="gn_topmenulist gn_topmenulist_set" id="gn_topmenulist_set" onmouseover="showInfo('gn_topmenulist_set')" onmouseout="hideInfo('gn_topmenulist_set')" node-type="accountLayer" style="display:none">
+                                        <ul>
+                                            <li class="gn_func">
+                                                <a target="_top" suda-data="key=account_setup&value=quit" href="javascript:void(0);"> 
+                                                    <form method="get" action="LogoutServlet">
+                                                        <button type="submit" class="logoutBtn" style="border:none; width: 100%; height: 100%; background-color:transparent; outline:none; font-size:12px;"> 登出 </button>
+                                                    </form>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="W_layer_arrow"><span class="W_arrow_bor W_arrow_bor_t"><i class="S_line3"></i><em
+                                                    class="S_bg2_br"></em></span></div>
+                                    </div>
+                                </div>
+                                <div class="gn_set_list">
+                                    <a href="javascript:void(0);"><em class="W_ficon ficon_send S_ficon" title="发微博" onclick="layerDisplay(1)" >ß</em></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="WB_main clearfix" id="plc_frame">
+                <div class="WB_frame">
+                    <div id="plc_main">
+                        <div class="WB_main_c" id="WB_main_c">
+                            <div id="v6_pl_content_publishertop">
+                                <div class="send_weibo S_bg2 clearfix send_weibo_long" node-type="wrap">
+                                    <div class="title_area clearfix">
+                                        <div class="title" node-type="publishTitle">
+                                            <p class="W_swficon ficon_swtxt"><em class="spac1">有什么新</em><em class="spac2">鲜</em><em
+                                                    class="spac3">事想告诉大家</em><em class="spac4">?</em></p>
+                                        </div>
+                                    </div>
+                                    <div class="input" node-type="textElDiv">
+                                        <textarea class="W_input" id="sendWB_1" title="微博输入框" name="content" node-type="textEl" pic_split="1" range="0&0" style="overflow: hidden; height: 68px;"></textarea>
+                                        <div class="send_succpic" id="sendSuc_1"style="display:none" node-type="successTip"><span class="W_icon icon_succB"></span><span class="txt">发布成功</span></div>
+                                    </div>
+                                    <div class="func_area clearfix" node-type="widget" layout-shell="true">
+                                        <div class="func">
+                                            <a href="javascript:void(0);" class="W_btn_a btn_30px W_btn_a_disable" diss-data="module=stissue" type="submit" onclick="send(1)" title="发布微博按钮" id="publishBtn" >发布</a>
+                                        </div>
+                                        <div class="kind">
+                                            <a class="S_txt1" href="javascript:void(0);" action-type="multiimage" action-data="type=508&action=1&log=image&cate=1"
+                                                title="图片" suda-uatrack="key=tblog_new_image_upload&value=image_button" style="position: relative;" onclick="fileFunc('image_file_1',1)">
+                                                <em class="W_ficon ficon_image">p</em>图片
+                                                <div style="position: absolute; left: 0px; top: 0px; display: block; overflow: hidden; background-color: rgb(0, 0, 0); opacity: 0; width: 49px; height: 24px;">
+                                                    <input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" hidefoucs="true" node-type="fileBtn" name="pic1"
+                                                            style="cursor:pointer;width:1000px;height:1000px;position:absolute;bottom:0;right:0;font-size:200px;" id="image_file_1" multiple="multiple">
+                                                </div>
+                                            </a>
+                                            <a class="S_txt1" href="javascript:void(0);" action-type="video" action-data="type=502&action=1&log=video&cate=1"
+                                                title="视频" suda-uatrack="key=tblog_home_edit&value=video_button" style="position: relative;" onclick="fileFunc('video_file_1',1)">
+                                                <em class="W_ficon ficon_video">q</em>视频<div
+                                                    style="position: absolute; left: 0px; top: 0px; display: block; overflow: hidden; background-color: rgb(0, 0, 0); opacity: 0; width: 49px; height: 24px;">
+                                                        <input type="file" name="video" hidefoucs="true" title="视频" accept=".mpg,.m4v,.mp4,.flv,.3gp,.mov,.avi,.rmvb,.mkv,.wmv" style="cursor:pointer;width:1000px;height:1000px;position:absolute;bottom:0;right:0;font-size:200px;" 
+                                                        id="video_file_1">
+                                                </div>
+                                            </a>
+                                            <div class="file_info"id="file_info_1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="pointer" style="display: none;"></div>
+                        </div>
+                        <div class="WB_main_r" fixed-box="true">
+                            <div id="v6_pl_rightmod_myinfo" fixed-box="true">
+                                <div class="WB_cardwrap S_bg2">
+                                    <div class="W_person_info">
+                                        <div class="cover" id="skin_cover_s" style="background-image:url(http://www.miyamoto.top/cover_s.jpg)">
+                                            <div class="headpic">
+                                                <a class="S_txt1" href="personInfo.html" title="" style="position: absolute; width: 60px; height: 60px; border-radius: 50%; border: transparent; background-color: transparent;">
+                                                    <img class="W_face_radius" id="headpic" src="" width="60px" height="60px" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="WB_innerwrap">
+                                            <div class="nameBox">
+                                                <a href="personInfo.html" class="name S_txt1" title="" id="nickname">null</a>
+                                            </div>
+                                            <ul class="user_atten clearfix W_f18">
+                                                <li class="S_line1" title="关注"><a href="personInfo.html" class="S_txt1"><strong id="follow">null</strong><span class="S_txt2">关注</span></a></li>
+                                                <li class="S_line1" title="粉丝"><a href="personInfo.html" class="S_txt1"><strong id="followed">null</strong><span class="S_txt2">粉丝</span></a></li>
+                                                <li class="S_line1" title="微博"><a href="personInfo.html" class="S_txt1"><strong id="blog_num">null</strong><span class="S_txt2">微博</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="plc_bot">
+                <a class="W_gotop" id="base_scrollToTop" href="javascript:void(0);" style="visibility: hidden; transform: translateZ(0px); position: fixed; bottom: 40px; top: auto;"
+                    onclick="gotop()"><em class="W_ficon ficon_backtop">Ú</em></a>
+            </div>
+        </div>
+    </div>
+    <div class="blur" id="WB_layer" style="display: none;">
+        <div class="W_layer">
+            <div tabindex="0"></div>
+            <div class="content" node-type="autoHeight">
+                <div node-type="title" class="W_layer_title" style="cursor: move;">今天有什么开心事？</div>
+                <div class="W_layer_close"><a node-type="close" href="javascript:void(0);" class="W_ficon ficon_close S_ficon"
+                        onclick="layerDisplay(2)">X</a></div>
+                <div node-type="inner">
+                    <div node-type="inner">
+                        <div class="detail" node-type="outer">
+                            <div class="send_weibo clearfix send_weibo_long" node-type="wrap">
+                                <div class="input ">
+                                    <textarea id="sendWB_2" style="margin: 0px; padding: 0px; border-style: none; border-width: 0px; font-size: 14px; overflow-wrap: break-word; line-height: 18px; overflow: hidden; outline: none; height: 68px; width: 100%;"></textarea>
+                                    <div class="send_succpic" id="sendSuc_2" style="display:none;"><span class="W_icon icon_succB"></span><span
+                                            class="txt">发布成功</span></div>
+                                </div>
+                                <div class="func_area clearfix" layout-shell="true">
+                                    <div class="func">
+                                        <a href="javascript:void(0);" onclick="send(2)" class="W_btn_a btn_30px" node-type="submit">发布</a>
+                                    </div>
+                                    <div class="kind" node-type="widget" style="position: relative;">
+                                        <a class="S_txt1" href="javascript:void(0);" action-type="multiimage" action-data="type=508&action=1&log=image&cate=1"
+                                            title="图片" suda-uatrack="key=tblog_new_image_upload&value=image_button" style="position: relative;"
+                                            onclick="fileFunc('image_file_2',2)">
+                                            <em class="W_ficon ficon_image">p</em>图片
+                                            <div style="position: absolute; left: 0px; top: 0px; display: block; overflow: hidden; background-color: rgb(0, 0, 0); opacity: 0; width: 49px; height: 24px;">
+                                                <input type="file" accept="image/jpg,image/jpeg,image/png,image/gif" hidefoucs="true"
+                                                    node-type="fileBtn" name="pic1" style="cursor:pointer;width:1000px;height:1000px;position:absolute;bottom:0;right:0;font-size:200px;"
+                                                    id="image_file_2" multiple="multiple">
+                                            </div>
+                                        </a>
+                                        <a class="S_txt1" href="javascript:void(0);" action-type="video" action-data="type=502&action=1&log=video&cate=1" title="视频"
+                                            suda-uatrack="key=tblog_home_edit&value=video_button" style="position: relative;" onclick="fileFunc('video_file_2',2)">
+                                            <em class="W_ficon ficon_video">q</em>视频<div style="position: absolute; left: 0px; top: 0px; display: block; overflow: hidden; background-color: rgb(0, 0, 0); opacity: 0; width: 49px; height: 24px;">
+                                                <input type="file" name="video" hidefoucs="true" title="视频" accept=".mpg,.m4v,.mp4,.flv,.3gp,.mov,.avi,.rmvb,.mkv,.wmv"
+                                                    style="cursor:pointer;width:1000px;height:1000px;position:absolute;bottom:0;right:0;font-size:200px;" id="video_file_2">
+                                            </div>
+                                        </a>
+                                        <div class="file_info" id="file_info_2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blur" id="pic_large" style="display: none;">
+        <div class="close"><button class="closeBtn_main" onclick="turnoff()" >×</button></div>
+        <img id="pic_view" height="85%">
+    </div>
+    <form name="sendWBForm" id="sendWBForm" style="display: none;" enctype="multipart/form-data">
+        <input type="text" name="pid" id="pid">
+        <input type="text" name="content" id="content">
+        <input type="file" name="picture" id="picture">
+        <input type="file" name="video" id="video">
+    </form>
+</body>
+</html>

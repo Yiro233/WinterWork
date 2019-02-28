@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>用户注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-position-y: 20px;
+            height: 1000px;
+        }
+        #mail {
+            width: 200px;
+            left: 10px;
+            top: 100px;
+            position: absolute;
+            display: block;
+        }
+        #phonecode {
+            width: 200px;
+            left: 10px;
+            top: 100px;
+            position: absolute;
+            display: none;
+        }
+        button,input {
+            outline: none;
+        }
+        .submit {
+            width: 100%;
+            height: 42px;
+            background-color: #ee7700;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            height: 30px;
+            text-indent: 2.5rem;
+        }
+        .switch {
+            width: 100px;
+            height: 20px;
+            border: none;
+            color: gray;
+            font-size: px;
+            border-radius: 5px;
+            top: 100px;
+            left: 110px;
+            background-color: #eee;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        function submitMail() {
+            var address = document.getElementById("mailaddr").value;
+            var password = document.getElementById("password").value;
+            var password_confirm = document.getElementById("password_confirm").value;
+            if ((password == password_confirm) && address){
+                alert("ok!")
+            }
+            else if (!address) {
+                alert("请输入邮箱！");
+            }
+            else if ((password != password_confirm) && address) {
+                alert("两次输入的密码不一致！");
+            }
+        }
+        function submitPhone() {
+        }
+        function change() {
+            var mail = document.getElementById("mail");
+            var phonecode = document.getElementById("phonecode");
+            if (mail.style.display == "block"){
+                mail.style.display = "none";
+                phonecode.style.display = "block";
+            }
+            else {
+                mail.style.display = "block";
+                phonecode.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="signup_head">
+        <div id="mail">
+            <form method="POST" action="RegistServlet">
+                <input type="text" id="mailaddr" name="username" placeholder="请输入用户名">
+                <input type="password" id="password" name="password" placeholder="请输入密码">
+                <input type="password" id="password_confirm" placeholder="请再次输入密码">
+                <button class="submit" onclick="submit()">立即注册</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

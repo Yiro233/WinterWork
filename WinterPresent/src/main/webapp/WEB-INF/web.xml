@@ -1,0 +1,188 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    <welcome-file-list>
+        <welcome-file>welcome.html</welcome-file>
+    </welcome-file-list>
+
+    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>RegistServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.RegistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistServlet</servlet-name>
+        <url-pattern>/RegistServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FindCookieServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.FindCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindCookieServlet</servlet-name>
+        <url-pattern>/FindCookieServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AvatarUploadServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.AvatarUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AvatarUploadServlet</servlet-name>
+        <url-pattern>/AvatarUploadServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UpdateInfoServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.UpdateInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateInfoServlet</servlet-name>
+        <url-pattern>/UpdateInfoServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>InfoServlet</servlet-name>
+        <servlet-class>team.redrock.messageBoard.servlet.InfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InfoServlet</servlet-name>
+        <url-pattern>/InfoServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LikeServlet</servlet-name>
+        <servlet-class>team.redrock.messageBoard.servlet.LikeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LikeServlet</servlet-name>
+        <url-pattern>/LikeServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SendServlet</servlet-name>
+        <servlet-class>team.redrock.messageBoard.servlet.SendServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendServlet</servlet-name>
+        <url-pattern>/SendServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>FollowServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.FollowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FollowServlet</servlet-name>
+        <url-pattern>/FollowServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>FollowInfoServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.FollowInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FollowInfoServlet</servlet-name>
+        <url-pattern>/FollowInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.UserInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserInfoServlet</servlet-name>
+        <url-pattern>/UserInfoServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PersonalMessageServlet</servlet-name>
+        <servlet-class>team.redrock.messageBoard.servlet.PersonalMessageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PersonalMessageServlet</servlet-name>
+        <url-pattern>/PersonalMessageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CollectServlet</servlet-name>
+        <servlet-class>team.redrock.user.servlet.CollectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollectServlet</servlet-name>
+        <url-pattern>/CollectServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CollectInfoServlet</servlet-name>
+        <servlet-class>team.redrock.messageBoard.servlet.CollectInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CollectInfoServlet</servlet-name>
+        <url-pattern>/CollectInfoServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>MainPageFilter</filter-name>
+        <filter-class>team.redrock.filter.MainPageFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MainPageFilter</filter-name>
+        <url-pattern>/mainpage.html</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>MainPageFilter</filter-name>
+        <url-pattern>/personInfo.html</url-pattern>
+    </filter-mapping>
+
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>team.redrock.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>charset</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/user/servlet/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/messageBoard/servlet/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>team.redrock.filter.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
